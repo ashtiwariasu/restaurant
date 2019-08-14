@@ -1,0 +1,1345 @@
+|-> RESET
+O---------------------------------------------------------O
+| NLOGIT 5  (tm)                 Jun 28, 2013, 02:14:30PM |
+| Econometric Software, Inc.     Copyright 1986-2012      |
+| Plainview, New York 11803                               |
+| Registered to                  ashutosh                 |
+|                                asu                      |
+| Registration Number            0612-0015527-5nsl        |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 5 (May 1, 2012)---------
+-----------------------------------------------------------
+
+|-> RESET $
+|-> READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA2.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=23 ; NAMES=LOCS,EOF,EOW,AVGSPEND,ALCN,FAVCUS,Restau,DisG,Dist
+|-> SAMPLE ; 2-273 $
+|-> DSTAT ; RHS=* $
+
+Descriptive Statistics for  23 variables
+--------+---------------------------------------------------------------------
+Variable|       Mean       Std.Dev.     Minimum      Maximum     Cases Missing
+--------+---------------------------------------------------------------------
+    LOCS|     3.316176      .821323          2.0          5.0      272       0
+     EOF|     2.977941      .800986          1.0          4.0      272       0
+     EOW|     2.036765      .791170          1.0          5.0      272       0
+AVGSPEND|     2.183824      .789247          1.0          5.0      272       0
+    ALCN|     1.933824      .877788          1.0          6.0      272       0
+  FAVCUS|     2.816176     1.370227          1.0          5.0      272       0
+  RESTAU|     1.496324      .500908          1.0          2.0      272       0
+    DISG|     2.455882     1.201891          1.0          5.0      272       0
+  DISTHM|     2.683824     1.179169          1.0          5.0      272       0
+ OVERALL|     3.683824     1.203943          1.0          5.0      272       0
+FOODQUAL|     3.323529      .978608          1.0          5.0      272       0
+   TASTE|     3.297794     1.003460          1.0          5.0      272       0
+ SERVICE|     3.500000     1.096792          1.0          5.0      272       0
+LOCATION|     3.481618      .997983          1.0          5.0      272       0
+   PRICE|     3.250000      .869746          1.0          5.0      272       0
+AMBIANCE|     3.147059      .937370          1.0          5.0      272       0
+ VARIETY|     3.246324      .902020          1.0          5.0      272       0
+ HEALTHY|     2.338235      .656734          1.0          5.0      272       0
+  RECFRD|     3.349265     1.109868          1.0          5.0      272       0
+     TIP|     2.610294      .784281          1.0          4.0      272       0
+ REVISIT|     3.147059     1.256889          1.0          5.0      272       0
+     RNU|     2.147059     1.256889          0.0          4.0      272       0
+  FRRCNU|     2.349265     1.109868          0.0          4.0      272       0
+--------+---------------------------------------------------------------------
+
+DSTAT results are matrix LASTDSTA in current project.
+|-> READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA3.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=24 ; NAMES=Group,RPN,YRR,PRR,WP,RWG,Round,RNO,Rest,Age,Gender
+|-> SAMPLE ; 2-273 $
+|-> DSTAT ; RHS=* $
+
+Descriptive Statistics for  47 variables
+--------+---------------------------------------------------------------------
+Variable|       Mean       Std.Dev.     Minimum      Maximum     Cases Missing
+--------+---------------------------------------------------------------------
+    LOCS|     3.316176      .821323          2.0          5.0      272       0
+     EOF|     2.977941      .800986          1.0          4.0      272       0
+     EOW|     2.036765      .791170          1.0          5.0      272       0
+AVGSPEND|     2.183824      .789247          1.0          5.0      272       0
+    ALCN|     1.933824      .877788          1.0          6.0      272       0
+  FAVCUS|     2.816176     1.370227          1.0          5.0      272       0
+  RESTAU|     1.496324      .500908          1.0          2.0      272       0
+    DISG|     2.455882     1.201891          1.0          5.0      272       0
+  DISTHM|     2.683824     1.179169          1.0          5.0      272       0
+ OVERALL|     3.683824     1.203943          1.0          5.0      272       0
+FOODQUAL|     3.323529      .978608          1.0          5.0      272       0
+   TASTE|     3.297794     1.003460          1.0          5.0      272       0
+ SERVICE|     3.500000     1.096792          1.0          5.0      272       0
+LOCATION|     3.481618      .997983          1.0          5.0      272       0
+   PRICE|     3.250000      .869746          1.0          5.0      272       0
+AMBIANCE|     3.147059      .937370          1.0          5.0      272       0
+ VARIETY|     3.246324      .902020          1.0          5.0      272       0
+ HEALTHY|     2.338235      .656734          1.0          5.0      272       0
+  RECFRD|     3.349265     1.109868          1.0          5.0      272       0
+     TIP|     2.610294      .784281          1.0          4.0      272       0
+ REVISIT|     3.147059     1.256889          1.0          5.0      272       0
+     RNU|     2.147059     1.256889          0.0          4.0      272       0
+  FRRCNU|     2.349265     1.109868          0.0          4.0      272       0
+   GROUP|     4.735294     3.807616          0.0         11.0      272       0
+     RPN|     -.007353      .854736    -1.000000          1.0      272       0
+     YRR|     1.063971     1.594047          0.0     4.400000      272       0
+     PRR|     1.277482     1.742811          0.0     4.600000      272       0
+      WP|     29.56213     43.38286          0.0     175.8000      272       0
+     RWG|     10.13235     10.38222          1.0         43.0      272       0
+   ROUND|     1.500000      .500922          1.0          2.0      272       0
+     RNO|     136.5000     78.66384          1.0        272.0      272       0
+    REST|     1.500000      .500922          1.0          2.0      272       0
+     AGE|     37.53383     12.84658         20.0         79.0      266       6
+  GENDER|      .492647      .500867          0.0          1.0      272       0
+ ETHINIC|     2.455882     2.414188          1.0          9.0      272       0
+     EDU|     3.882353     2.125435          1.0          7.0      272       0
+ MARITAL|     1.852941      .563717          1.0          3.0      272       0
+  DEPEND|     2.941176     1.642448          0.0          7.0      272       0
+  INCOME|     3.926471     2.144700          1.0          9.0      272       0
+      RD|     2.647059      .913445          1.0          5.0      272       0
+      OT|     2.705882     1.024552          1.0          4.0      272       0
+    SNWS|     2.433824     1.404800          1.0          6.0      272       0
+   FBLTS|     2.588235     1.820225          1.0          6.0      272       0
+    FBAT|     3.095588     2.239790          1.0          8.0      272       0
+    RECR|     1.051471      .221363          1.0          2.0      272       0
+     UOR|     1.198529      .399628          1.0          2.0      272       0
+     NRE|     1.088235      .284160          1.0          2.0      272       0
+--------+---------------------------------------------------------------------
+
+DSTAT results are matrix LASTDSTA in current project.
+|-> READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA4.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=12 ; NAMES=WOR,OWU,PFOR,RPTF,CPR,NC,TASTES,FQS,HCS,AMBS,SERVI
+|-> SAMPLE ; 2-273 $
+|-> DSTAT ; RHS=* $
+
+Descriptive Statistics for  59 variables
+--------+---------------------------------------------------------------------
+Variable|       Mean       Std.Dev.     Minimum      Maximum     Cases Missing
+--------+---------------------------------------------------------------------
+    LOCS|     3.316176      .821323          2.0          5.0      272       0
+     EOF|     2.977941      .800986          1.0          4.0      272       0
+     EOW|     2.036765      .791170          1.0          5.0      272       0
+AVGSPEND|     2.183824      .789247          1.0          5.0      272       0
+    ALCN|     1.933824      .877788          1.0          6.0      272       0
+  FAVCUS|     2.816176     1.370227          1.0          5.0      272       0
+  RESTAU|     1.496324      .500908          1.0          2.0      272       0
+    DISG|     2.455882     1.201891          1.0          5.0      272       0
+  DISTHM|     2.683824     1.179169          1.0          5.0      272       0
+ OVERALL|     3.683824     1.203943          1.0          5.0      272       0
+FOODQUAL|     3.323529      .978608          1.0          5.0      272       0
+   TASTE|     3.297794     1.003460          1.0          5.0      272       0
+ SERVICE|     3.500000     1.096792          1.0          5.0      272       0
+LOCATION|     3.481618      .997983          1.0          5.0      272       0
+   PRICE|     3.250000      .869746          1.0          5.0      272       0
+AMBIANCE|     3.147059      .937370          1.0          5.0      272       0
+ VARIETY|     3.246324      .902020          1.0          5.0      272       0
+ HEALTHY|     2.338235      .656734          1.0          5.0      272       0
+  RECFRD|     3.349265     1.109868          1.0          5.0      272       0
+     TIP|     2.610294      .784281          1.0          4.0      272       0
+ REVISIT|     3.147059     1.256889          1.0          5.0      272       0
+     RNU|     2.147059     1.256889          0.0          4.0      272       0
+  FRRCNU|     2.349265     1.109868          0.0          4.0      272       0
+   GROUP|     4.735294     3.807616          0.0         11.0      272       0
+     RPN|     -.007353      .854736    -1.000000          1.0      272       0
+     YRR|     1.063971     1.594047          0.0     4.400000      272       0
+     PRR|     1.277482     1.742811          0.0     4.600000      272       0
+      WP|     29.56213     43.38286          0.0     175.8000      272       0
+     RWG|     10.13235     10.38222          1.0         43.0      272       0
+   ROUND|     1.500000      .500922          1.0          2.0      272       0
+     RNO|     136.5000     78.66384          1.0        272.0      272       0
+    REST|     1.500000      .500922          1.0          2.0      272       0
+     AGE|     37.53383     12.84658         20.0         79.0      266       6
+  GENDER|      .492647      .500867          0.0          1.0      272       0
+ ETHINIC|     2.455882     2.414188          1.0          9.0      272       0
+     EDU|     3.882353     2.125435          1.0          7.0      272       0
+ MARITAL|     1.852941      .563717          1.0          3.0      272       0
+  DEPEND|     2.941176     1.642448          0.0          7.0      272       0
+  INCOME|     3.926471     2.144700          1.0          9.0      272       0
+      RD|     2.647059      .913445          1.0          5.0      272       0
+      OT|     2.705882     1.024552          1.0          4.0      272       0
+    SNWS|     2.433824     1.404800          1.0          6.0      272       0
+   FBLTS|     2.588235     1.820225          1.0          6.0      272       0
+    FBAT|     3.095588     2.239790          1.0          8.0      272       0
+    RECR|     1.051471      .221363          1.0          2.0      272       0
+     UOR|     1.198529      .399628          1.0          2.0      272       0
+     NRE|     1.088235      .284160          1.0          2.0      272       0
+     WOR|     1.573529      .495476          1.0          2.0      272       0
+     OWU|     53.76471     46.90010          4.0        128.0      272       0
+    PFOR|     869.4044     706.6262          1.0       2046.0      272       0
+    RPTF|     1.147059      .354817          1.0          2.0      272       0
+     CPR|     1.036765      .188530          1.0          2.0      272       0
+      NC|     1.316176      .465840          1.0          2.0      272       0
+  TASTES|     4.602941      .622807          3.0          5.0      272       0
+     FQS|     4.463235      .686271          3.0          5.0      272       0
+     HCS|     3.367647     1.098868          1.0          5.0      272       0
+    AMBS|     3.661765      .860966          1.0          5.0      272       0
+SERVICES|     4.257353      .718715          2.0          5.0      272       0
+  PRICES|     3.750000      .865493          2.0          5.0      272       0
+--------+---------------------------------------------------------------------
+
+DSTAT results are matrix LASTDSTA in current project.
+|-> CREATE ; GEN = GENDER $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; MAR = MARITAL $
+|-> RECODE ; GEN ; 1=1;2=3;3=2 $
+|-> CREATE ; REC = RECR $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; UOR = UOR $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; NRE = NRE $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; WOR = WOR $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; RPTF = RPTF $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; CPR = CPR $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; NC = NC $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> NAMELIST ; Z= AGE,GEN,MAR,DEPEND,INCOME,OT,REC $
+|-> REGRESS ; LHS=WP; RHS=Z; RES=RESID $
+
+-----------------------------------------------------------------------------
+Ordinary     least squares regression ............
+LHS=WP       Mean                 =       29.56213
+             Standard deviation   =       43.38286
+             Number of observs.   =            272
+Model size   Parameters           =              7
+             Degrees of freedom   =            265
+Residuals    Sum of squares       =        500579.
+             Standard error of e  =       43.46237
+Fit          R-squared            =         .01855
+             Adjusted R-squared   =        -.00367
+Model test   F[  6,   265] (prob) =      .8(.5438)
+Not using OLS or no constant. Rsqrd & F may be < 0
+Model was estimated on Jun 28, 2013 at 02:14:38 PM
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+      WP|  Coefficient       Error       t    |t|>T*         Interval
+--------+--------------------------------------------------------------------
+     AGE|    -.01265         .01745     -.73  .4691     -.04685    .02155
+     GEN|    6.97412        5.33131     1.31  .1920    -3.47506  17.42330
+     MAR|    11.6095**      4.67572     2.48  .0136      2.4453   20.7738
+  DEPEND|    -.99994        1.86044     -.54  .5914    -4.64633   2.64645
+  INCOME|    1.10134        1.39883      .79  .4318    -1.64031   3.84299
+      OT|   -1.72583        2.29267     -.75  .4523    -6.21937   2.76771
+     REC|    7.03458        8.92768      .79  .4314   -10.46335  24.53250
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> SETPANEL ; Group = GROUP ; Pds = GRP $
++-----------------------------------------------------------------+
+| Variable = ____________ Variable Groups    Max    Min   Average |
+| GRP        Group sizes  GROUP        22     37      9      12.4 |
++-----------------------------------------------------------------+
+|-> NAMELIST ; x = one,YRR,RESID $
+|-> ORDERED ; Lhs = RNU ; Rhs = x ; Partial Effects $
+Normal exit:  10 iterations. Status=0, F=    424.0052
+
+-----------------------------------------------------------------------------
+Ordered Probability Model
+Dependent variable                  RNU
+Log likelihood function      -424.00521
+Restricted log likelihood    -426.46862
+Chi squared [   2 d.f.]         4.92683
+Significance level               .08514
+McFadden Pseudo R-squared      .0057763
+Estimation based on N =    272, K =   6
+Inf.Cr.AIC  =    860.0 AIC/N =    3.162
+Model estimated: Jun 28, 2013, 14:14:39
+Underlying probabilities based on Normal
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+     RNU|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Index function for probability
+Constant|    1.20571***      .08161    14.77  .0000     1.04575   1.36567
+     YRR|    -.07193*        .04076    -1.76  .0776     -.15182    .00797
+   RESID|    -.00072*        .00043    -1.69  .0911     -.00156    .00012
+        |Threshold parameters for index
+   Mu(1)|     .64778***      .06662     9.72  .0000      .51720    .77835
+   Mu(2)|    1.31326***      .07253    18.11  .0000     1.17110   1.45542
+   Mu(3)|    2.17547***      .09539    22.81  .0000     1.98851   2.36243
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
++--------------------------------------------------------------------+
+|                CELL FREQUENCIES FOR ORDERED CHOICES                |
++--------------------------------------------------------------------+
+|               Frequency        Cumulative  < =    Cumulative  > =  |
+|Outcome      Count    Percent   Count    Percent   Count    Percent |
+|----------- ------- ---------  ------- ---------  ------- --------- |
+|RNU=00           35   12.8676       35   12.8676      272  100.0000 |
+|RNU=01           50   18.3824       85   31.2500      237   87.1324 |
+|RNU=02           69   25.3676      154   56.6176      187   68.7500 |
+|RNU=03           76   27.9412      230   84.5588      118   43.3824 |
+|RNU=04           42   15.4412      272  100.0000       42   15.4412 |
++--------------------------------------------------------------------+
+
+-----------------------------------------------------------------------------
+Marginal effects for ordered probability model
+M.E.s for dummy variables are Pr[y|x=1]-Pr[y|x=0]
+Names for dummy variables are marked by *.
+--------+--------------------------------------------------------------------
+        |     Partial                          Prob.      95% Confidence
+     RNU|      Effect    Elasticity      z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |--------------[Partial effects on Prob[Y=00] at means]--------------
+     YRR|     .01515*        .12238     1.75  .0805     -.00184    .03214
+   RESID|     .00015*        .00074     1.65  .0991     -.00003    .00033
+        |--------------[Partial effects on Prob[Y=01] at means]--------------
+     YRR|     .01039*        .05845     1.76  .0781     -.00117    .02195
+   RESID|     .00010*        .00035     1.70  .0895     -.00002    .00022
+        |--------------[Partial effects on Prob[Y=02] at means]--------------
+     YRR|     .00268         .01083     1.38  .1689     -.00114    .00649
+   RESID| .26794D-04      .6531D-04     1.42  .1543 -.10071D-04  .63659D-04
+        |--------------[Partial effects on Prob[Y=03] at means]--------------
+     YRR|    -.01160*       -.04333    -1.71  .0875     -.02491    .00170
+   RESID|    -.00012        -.00026    -1.61  .1067     -.00026    .00002
+        |--------------[Partial effects on Prob[Y=04] at means]--------------
+     YRR|    -.01662*       -.11721    -1.74  .0827     -.03539    .00215
+   RESID|    -.00017*       -.00071    -1.69  .0907     -.00036    .00003
+--------+--------------------------------------------------------------------
+z, prob values and confidence intervals are given for the partial effect
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Cross tabulation of predictions and actual outcomes
++------+-----+-----+-----+-----+-----+-----+
+|y(i,j)|  0  |  1  |  2  |  3  |  4  |Total|
++------+-----+-----+-----+-----+-----+-----+
+|   0  |    0|    0|    6|   29|    0|   35|
+|   1  |    0|    0|   10|   40|    0|   50|
+|   2  |    0|    0|   16|   52|    0|   68|
+|   3  |    0|    0|   10|   62|    0|   72|
+|   4  |    0|    0|    4|   37|    0|   41|
++------+-----+-----+-----+-----+-----+-----+
+| Total|    0|    0|   46|  220|    0|  266|
++------+-----+-----+-----+-----+-----+-----+
+Row = actual, Column = Prediction, Model = Probit
+Prediction is number of the most probable cell.
+
+Cross tabulation of outcomes and predicted probabilities.
++------+-----+-----+-----+-----+-----+-----+
+|y(i,j)|  0  |  1  |  2  |  3  |  4  |Total|
++------+-----+-----+-----+-----+-----+-----+
+|   0  |    5|    7|    9|   10|    5|   35|
+|   1  |    7|    9|   13|   14|    7|   50|
+|   2  |    9|   13|   17|   19|   10|   68|
+|   3  |    9|   13|   18|   20|   11|   72|
+|   4  |    5|    8|   11|   12|    6|   41|
++------+-----+-----+-----+-----+-----+-----+
+| Total|   35|   49|   68|   74|   40|  266|
++------+-----+-----+-----+-----+-----+-----+
+Row = actual, Column = Prediction, Model = Probit
+Value(j,m)=Sum(i=1,N)y(i,j)*p(i,m).
+Column totals may not match cell sums because of rounding error.
+|-> ORDERED ; Lhs = RNU; Rhs = x
+    ; RPM ; Panel ; Fcn = YRR(n),RESID(n) ; Halton ; Pts = 25
+    ; Partial Effects ; Par $
++-----------------------------------------------------------------+
+| Variable = ____________ Variable Groups    Max    Min   Average |
+| GRP        Group sizes  GROUP        22     37      9      12.4 |
++-----------------------------------------------------------------+
++------------------------------------------------------+
+| Frequency count for group sizes of GRP               |
+| Group size =   9   Pct =   9.09%   CumPct =   9.09%  |
+| Group size =  10   Pct =  81.82%   CumPct =  90.91%  |
+| Group size =  11   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  12   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  13   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  14   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  15   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  16   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  17   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  18   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  19   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  20   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  21   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  22   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  23   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  24   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  25   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  26   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  27   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  28   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  29   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  30   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  31   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  32   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  33   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  34   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  35   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  36   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  37   Pct =   9.09%   CumPct = 100.00%  |
++------------------------------------------------------+
+Normal exit:  16 iterations. Status=0, F=    407.6591
+
+-----------------------------------------------------------------------------
+Random Coefficients  OrdProbs Model
+Dependent variable                  RNU
+Log likelihood function      -407.65914
+Estimation based on N =    272, K =   8
+Inf.Cr.AIC  =    831.3 AIC/N =    3.056
+Model estimated: Jun 28, 2013, 14:14:41
+Unbalanced panel has     22 individuals
+Ordered probability model
+Ordered probit (normal) model
+LHS variable = values 0,1,..., 4
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+     RNU|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Nonrandom parameters
+Constant|    1.21929***      .10682    11.41  .0000     1.00993   1.42866
+        |Means for random parameters
+     YRR|    -.09863*        .05277    -1.87  .0616     -.20205    .00479
+   RESID|    -.00432**       .00181    -2.39  .0170     -.00788   -.00077
+        |Scale parameters for dists. of random parameters
+     YRR|     .11470***      .03814     3.01  .0026      .03995    .18946
+   RESID|     .01170***      .00168     6.96  .0000      .00841    .01500
+        |Threshold parameters for probabilities
+   MU(1)|     .69607***      .10422     6.68  .0000      .49180    .90035
+   MU(2)|    1.41876***      .09565    14.83  .0000     1.23129   1.60622
+   MU(3)|    2.35401***      .12326    19.10  .0000     2.11243   2.59559
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------
+Marginal effects for ordered probability model
+M.E.s for dummy variables are Pr[y|x=1]-Pr[y|x=0]
+Names for dummy variables are marked by *.
+--------+--------------------------------------------------------------------
+        |     Partial                          Prob.      95% Confidence
+     RNU|      Effect    Elasticity      z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |--------------[Partial effects on Prob[Y=00] at means]--------------
+     YRR|     .02117*        .16643     1.80  .0722     -.00191    .04424
+   RESID|     .00093**       .00439     2.27  .0230      .00013    .00173
+        |--------------[Partial effects on Prob[Y=01] at means]--------------
+     YRR|     .01490*        .07569     1.88  .0603     -.00064    .03044
+   RESID|     .00065**       .00200     2.39  .0169      .00012    .00119
+        |--------------[Partial effects on Prob[Y=02] at means]--------------
+     YRR|     .00150         .00554      .68  .4980     -.00283    .00582
+   RESID| .65573D-04         .00015      .70  .4841 -.11809D-03  .24924D-03
+        |--------------[Partial effects on Prob[Y=03] at means]--------------
+     YRR|    -.01933*       -.07396    -1.84  .0654     -.03988    .00123
+   RESID|    -.00085**      -.00195    -2.32  .0204     -.00156   -.00013
+        |--------------[Partial effects on Prob[Y=04] at means]--------------
+     YRR|    -.01823*       -.17713    -1.82  .0687     -.03786    .00140
+   RESID|    -.00080**      -.00468    -2.34  .0194     -.00147   -.00013
+--------+--------------------------------------------------------------------
+z, prob values and confidence intervals are given for the partial effect
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> SAMPLE ; 2-273 $
+|-> MATRIX ; mb_ROUND = beta_i(1:118,1:1) $
+Error:  583: Problem with matrix. See previous diagnostic.
+|-> CREATE ; be_ROUND = mb_ROUND $
+Error:  768: Have been unable to break down the command segment.
+Error:  623: Check for error in MB_ROUND
+Error:  623: Look for: Unknown names, pairs of operators, e.g., */
+Error:   61: Compilation error in CREATE. See previous diagnostic.
+|-> KERNEL ; Rhs = be_ROUND $
+Error:   71: Variable list contains a name not in the expected table.
+Error:  539: Variable list: The unidentifiable string is BE_ROUND
+Error:   83: RHS/RH1  variable in list  not in the variable names table.
+|-> ORDERED ; Lhs = RNU ; Rhs = x ; Partial Effects $
+Normal exit:  10 iterations. Status=0, F=    424.0052
+
+-----------------------------------------------------------------------------
+Ordered Probability Model
+Dependent variable                  RNU
+Log likelihood function      -424.00521
+Restricted log likelihood    -426.46862
+Chi squared [   2 d.f.]         4.92683
+Significance level               .08514
+McFadden Pseudo R-squared      .0057763
+Estimation based on N =    272, K =   6
+Inf.Cr.AIC  =    860.0 AIC/N =    3.162
+Model estimated: Jun 28, 2013, 14:14:41
+Underlying probabilities based on Normal
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+     RNU|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Index function for probability
+Constant|    1.20571***      .08161    14.77  .0000     1.04575   1.36567
+     YRR|    -.07193*        .04076    -1.76  .0776     -.15182    .00797
+   RESID|    -.00072*        .00043    -1.69  .0911     -.00156    .00012
+        |Threshold parameters for index
+   Mu(1)|     .64778***      .06662     9.72  .0000      .51720    .77835
+   Mu(2)|    1.31326***      .07253    18.11  .0000     1.17110   1.45542
+   Mu(3)|    2.17547***      .09539    22.81  .0000     1.98851   2.36243
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
++--------------------------------------------------------------------+
+|                CELL FREQUENCIES FOR ORDERED CHOICES                |
++--------------------------------------------------------------------+
+|               Frequency        Cumulative  < =    Cumulative  > =  |
+|Outcome      Count    Percent   Count    Percent   Count    Percent |
+|----------- ------- ---------  ------- ---------  ------- --------- |
+|RNU=00           35   12.8676       35   12.8676      272  100.0000 |
+|RNU=01           50   18.3824       85   31.2500      237   87.1324 |
+|RNU=02           69   25.3676      154   56.6176      187   68.7500 |
+|RNU=03           76   27.9412      230   84.5588      118   43.3824 |
+|RNU=04           42   15.4412      272  100.0000       42   15.4412 |
++--------------------------------------------------------------------+
+
+-----------------------------------------------------------------------------
+Marginal effects for ordered probability model
+M.E.s for dummy variables are Pr[y|x=1]-Pr[y|x=0]
+Names for dummy variables are marked by *.
+--------+--------------------------------------------------------------------
+        |     Partial                          Prob.      95% Confidence
+     RNU|      Effect    Elasticity      z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |--------------[Partial effects on Prob[Y=00] at means]--------------
+     YRR|     .01515*        .12238     1.75  .0805     -.00184    .03214
+   RESID|     .00015*        .00074     1.65  .0991     -.00003    .00033
+        |--------------[Partial effects on Prob[Y=01] at means]--------------
+     YRR|     .01039*        .05845     1.76  .0781     -.00117    .02195
+   RESID|     .00010*        .00035     1.70  .0895     -.00002    .00022
+        |--------------[Partial effects on Prob[Y=02] at means]--------------
+     YRR|     .00268         .01083     1.38  .1689     -.00114    .00649
+   RESID| .26794D-04      .6531D-04     1.42  .1543 -.10071D-04  .63659D-04
+        |--------------[Partial effects on Prob[Y=03] at means]--------------
+     YRR|    -.01160*       -.04333    -1.71  .0875     -.02491    .00170
+   RESID|    -.00012        -.00026    -1.61  .1067     -.00026    .00002
+        |--------------[Partial effects on Prob[Y=04] at means]--------------
+     YRR|    -.01662*       -.11721    -1.74  .0827     -.03539    .00215
+   RESID|    -.00017*       -.00071    -1.69  .0907     -.00036    .00003
+--------+--------------------------------------------------------------------
+z, prob values and confidence intervals are given for the partial effect
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Cross tabulation of predictions and actual outcomes
++------+-----+-----+-----+-----+-----+-----+
+|y(i,j)|  0  |  1  |  2  |  3  |  4  |Total|
++------+-----+-----+-----+-----+-----+-----+
+|   0  |    0|    0|    6|   29|    0|   35|
+|   1  |    0|    0|   10|   40|    0|   50|
+|   2  |    0|    0|   16|   52|    0|   68|
+|   3  |    0|    0|   10|   62|    0|   72|
+|   4  |    0|    0|    4|   37|    0|   41|
++------+-----+-----+-----+-----+-----+-----+
+| Total|    0|    0|   46|  220|    0|  266|
++------+-----+-----+-----+-----+-----+-----+
+Row = actual, Column = Prediction, Model = Probit
+Prediction is number of the most probable cell.
+
+Cross tabulation of outcomes and predicted probabilities.
++------+-----+-----+-----+-----+-----+-----+
+|y(i,j)|  0  |  1  |  2  |  3  |  4  |Total|
++------+-----+-----+-----+-----+-----+-----+
+|   0  |    5|    7|    9|   10|    5|   35|
+|   1  |    7|    9|   13|   14|    7|   50|
+|   2  |    9|   13|   17|   19|   10|   68|
+|   3  |    9|   13|   18|   20|   11|   72|
+|   4  |    5|    8|   11|   12|    6|   41|
++------+-----+-----+-----+-----+-----+-----+
+| Total|   35|   49|   68|   74|   40|  266|
++------+-----+-----+-----+-----+-----+-----+
+Row = actual, Column = Prediction, Model = Probit
+Value(j,m)=Sum(i=1,N)y(i,j)*p(i,m).
+Column totals may not match cell sums because of rounding error.
+|-> ORDERED ; Lhs = RNU ; Rhs = x
+    ; RPM ; Panel ; Fcn = YRR(n),RESID(n) ; Halton ; Pts = 25
+    ; Correlated ; Partial Effects ; Par $
++-----------------------------------------------------------------+
+| Variable = ____________ Variable Groups    Max    Min   Average |
+| GRP        Group sizes  GROUP        22     37      9      12.4 |
++-----------------------------------------------------------------+
++------------------------------------------------------+
+| Frequency count for group sizes of GRP               |
+| Group size =   9   Pct =   9.09%   CumPct =   9.09%  |
+| Group size =  10   Pct =  81.82%   CumPct =  90.91%  |
+| Group size =  11   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  12   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  13   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  14   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  15   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  16   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  17   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  18   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  19   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  20   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  21   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  22   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  23   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  24   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  25   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  26   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  27   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  28   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  29   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  30   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  31   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  32   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  33   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  34   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  35   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  36   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  37   Pct =   9.09%   CumPct = 100.00%  |
++------------------------------------------------------+
+Normal exit:  19 iterations. Status=0, F=    406.2038
+
+-----------------------------------------------------------------------------
+Random Coefficients  OrdProbs Model
+Dependent variable                  RNU
+Log likelihood function      -406.20378
+Estimation based on N =    272, K =   9
+Inf.Cr.AIC  =    830.4 AIC/N =    3.053
+Model estimated: Jun 28, 2013, 14:14:44
+Unbalanced panel has     22 individuals
+Ordered probability model
+Ordered probit (normal) model
+LHS variable = values 0,1,..., 4
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+     RNU|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Nonrandom parameters
+Constant|    1.21591***      .10224    11.89  .0000     1.01552   1.41630
+        |Means for random parameters
+     YRR|    -.12746**       .05313    -2.40  .0164     -.23160   -.02333
+   RESID|    -.00571***      .00199    -2.87  .0041     -.00961   -.00181
+        |Diagonal elements of Cholesky matrix
+     YRR|     .11221**       .05106     2.20  .0280      .01213    .21230
+   RESID|     .01001***      .00189     5.31  .0000      .00632    .01371
+        |Below diagonal elements of Cholesky matrix
+lRES_YRR|    -.00822***      .00207    -3.97  .0001     -.01228   -.00416
+        |Threshold parameters for probabilities
+   MU(1)|     .69927***      .10597     6.60  .0000      .49157    .90697
+   MU(2)|    1.42854***      .09692    14.74  .0000     1.23857   1.61851
+   MU(3)|    2.37877***      .12443    19.12  .0000     2.13489   2.62265
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Implied covariance matrix of random parameters
+
+Covariance  matrix
+--------+-----------------------------------------------------------------------
+                 YRR       RESID
+--------+-----------------------------------------------------------------------
+YRR        .1259E-01
+RESID     -.9226E-03   .1679E-03
+
+Implied standard deviations of random parameters
+
+S.D_Beta|             1
+--------+--------------
+       1|       .112212
+       2|      .0129570
+
+
+Implied correlation matrix of random parameters
+
+
+--------+-----------------
+Cor.Mat.|     YRR    RESID
+--------+-----------------
+     YRR| 1.00000  -.63456
+   RESID| -.63456  1.00000
+
+
+-----------------------------------------------------------------------------
+Marginal effects for ordered probability model
+M.E.s for dummy variables are Pr[y|x=1]-Pr[y|x=0]
+Names for dummy variables are marked by *.
+--------+--------------------------------------------------------------------
+        |     Partial                          Prob.      95% Confidence
+     RNU|      Effect    Elasticity      z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |--------------[Partial effects on Prob[Y=00] at means]--------------
+     YRR|     .02840**       .21137     2.24  .0248      .00360    .05320
+   RESID|     .00127***      .00570     2.71  .0068      .00035    .00219
+        |--------------[Partial effects on Prob[Y=01] at means]--------------
+     YRR|     .01891**       .09319     2.43  .0150      .00367    .03414
+   RESID|     .00085***      .00251     2.85  .0043      .00027    .00143
+        |--------------[Partial effects on Prob[Y=02] at means]--------------
+     YRR|     .00053         .00196      .20  .8401     -.00466    .00573
+   RESID| .23942D-04      .5288D-04      .20  .8401 -.20861D-03  .25649D-03
+        |--------------[Partial effects on Prob[Y=03] at means]--------------
+     YRR|    -.02598**      -.10173    -2.34  .0194     -.04776   -.00420
+   RESID|    -.00116***     -.00275    -2.80  .0052     -.00198   -.00035
+        |--------------[Partial effects on Prob[Y=04] at means]--------------
+     YRR|    -.02186**      -.23543    -2.31  .0207     -.04037   -.00334
+   RESID|    -.00098***     -.00635    -2.76  .0058     -.00168   -.00028
+--------+--------------------------------------------------------------------
+z, prob values and confidence intervals are given for the partial effect
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> RESET $
+|-> READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA2.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=23 ; NAMES=LOCS,EOF,EOW,AVGSPEND,ALCN,FAVCUS,Restau,DisG,Dist
+|-> SAMPLE ; 2-273 $
+|-> DSTAT ; RHS=* $
+
+Descriptive Statistics for  23 variables
+--------+---------------------------------------------------------------------
+Variable|       Mean       Std.Dev.     Minimum      Maximum     Cases Missing
+--------+---------------------------------------------------------------------
+    LOCS|     3.316176      .821323          2.0          5.0      272       0
+     EOF|     2.977941      .800986          1.0          4.0      272       0
+     EOW|     2.036765      .791170          1.0          5.0      272       0
+AVGSPEND|     2.183824      .789247          1.0          5.0      272       0
+    ALCN|     1.933824      .877788          1.0          6.0      272       0
+  FAVCUS|     2.816176     1.370227          1.0          5.0      272       0
+  RESTAU|     1.496324      .500908          1.0          2.0      272       0
+    DISG|     2.455882     1.201891          1.0          5.0      272       0
+  DISTHM|     2.683824     1.179169          1.0          5.0      272       0
+ OVERALL|     3.683824     1.203943          1.0          5.0      272       0
+FOODQUAL|     3.323529      .978608          1.0          5.0      272       0
+   TASTE|     3.297794     1.003460          1.0          5.0      272       0
+ SERVICE|     3.500000     1.096792          1.0          5.0      272       0
+LOCATION|     3.481618      .997983          1.0          5.0      272       0
+   PRICE|     3.250000      .869746          1.0          5.0      272       0
+AMBIANCE|     3.147059      .937370          1.0          5.0      272       0
+ VARIETY|     3.246324      .902020          1.0          5.0      272       0
+ HEALTHY|     2.338235      .656734          1.0          5.0      272       0
+  RECFRD|     3.349265     1.109868          1.0          5.0      272       0
+     TIP|     2.610294      .784281          1.0          4.0      272       0
+ REVISIT|     3.147059     1.256889          1.0          5.0      272       0
+     RNU|     2.147059     1.256889          0.0          4.0      272       0
+  FRRCNU|     2.349265     1.109868          0.0          4.0      272       0
+--------+---------------------------------------------------------------------
+
+DSTAT results are matrix LASTDSTA in current project.
+|-> READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA3.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=24 ; NAMES=Group,RPN,YRR,PRR,WP,RWG,Round,RNO,Rest,Age,Gender
+|-> SAMPLE ; 2-273 $
+|-> DSTAT ; RHS=* $
+
+Descriptive Statistics for  47 variables
+--------+---------------------------------------------------------------------
+Variable|       Mean       Std.Dev.     Minimum      Maximum     Cases Missing
+--------+---------------------------------------------------------------------
+    LOCS|     3.316176      .821323          2.0          5.0      272       0
+     EOF|     2.977941      .800986          1.0          4.0      272       0
+     EOW|     2.036765      .791170          1.0          5.0      272       0
+AVGSPEND|     2.183824      .789247          1.0          5.0      272       0
+    ALCN|     1.933824      .877788          1.0          6.0      272       0
+  FAVCUS|     2.816176     1.370227          1.0          5.0      272       0
+  RESTAU|     1.496324      .500908          1.0          2.0      272       0
+    DISG|     2.455882     1.201891          1.0          5.0      272       0
+  DISTHM|     2.683824     1.179169          1.0          5.0      272       0
+ OVERALL|     3.683824     1.203943          1.0          5.0      272       0
+FOODQUAL|     3.323529      .978608          1.0          5.0      272       0
+   TASTE|     3.297794     1.003460          1.0          5.0      272       0
+ SERVICE|     3.500000     1.096792          1.0          5.0      272       0
+LOCATION|     3.481618      .997983          1.0          5.0      272       0
+   PRICE|     3.250000      .869746          1.0          5.0      272       0
+AMBIANCE|     3.147059      .937370          1.0          5.0      272       0
+ VARIETY|     3.246324      .902020          1.0          5.0      272       0
+ HEALTHY|     2.338235      .656734          1.0          5.0      272       0
+  RECFRD|     3.349265     1.109868          1.0          5.0      272       0
+     TIP|     2.610294      .784281          1.0          4.0      272       0
+ REVISIT|     3.147059     1.256889          1.0          5.0      272       0
+     RNU|     2.147059     1.256889          0.0          4.0      272       0
+  FRRCNU|     2.349265     1.109868          0.0          4.0      272       0
+   GROUP|     4.735294     3.807616          0.0         11.0      272       0
+     RPN|     -.007353      .854736    -1.000000          1.0      272       0
+     YRR|     1.063971     1.594047          0.0     4.400000      272       0
+     PRR|     1.277482     1.742811          0.0     4.600000      272       0
+      WP|     29.56213     43.38286          0.0     175.8000      272       0
+     RWG|     10.13235     10.38222          1.0         43.0      272       0
+   ROUND|     1.500000      .500922          1.0          2.0      272       0
+     RNO|     136.5000     78.66384          1.0        272.0      272       0
+    REST|     1.500000      .500922          1.0          2.0      272       0
+     AGE|     37.53383     12.84658         20.0         79.0      266       6
+  GENDER|      .492647      .500867          0.0          1.0      272       0
+ ETHINIC|     2.455882     2.414188          1.0          9.0      272       0
+     EDU|     3.882353     2.125435          1.0          7.0      272       0
+ MARITAL|     1.852941      .563717          1.0          3.0      272       0
+  DEPEND|     2.941176     1.642448          0.0          7.0      272       0
+  INCOME|     3.926471     2.144700          1.0          9.0      272       0
+      RD|     2.647059      .913445          1.0          5.0      272       0
+      OT|     2.705882     1.024552          1.0          4.0      272       0
+    SNWS|     2.433824     1.404800          1.0          6.0      272       0
+   FBLTS|     2.588235     1.820225          1.0          6.0      272       0
+    FBAT|     3.095588     2.239790          1.0          8.0      272       0
+    RECR|     1.051471      .221363          1.0          2.0      272       0
+     UOR|     1.198529      .399628          1.0          2.0      272       0
+     NRE|     1.088235      .284160          1.0          2.0      272       0
+--------+---------------------------------------------------------------------
+
+DSTAT results are matrix LASTDSTA in current project.
+|-> READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA4.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=12 ; NAMES=WOR,OWU,PFOR,RPTF,CPR,NC,TASTES,FQS,HCS,AMBS,SERVI
+|-> SAMPLE ; 2-273 $
+|-> DSTAT ; RHS=* $
+
+Descriptive Statistics for  59 variables
+--------+---------------------------------------------------------------------
+Variable|       Mean       Std.Dev.     Minimum      Maximum     Cases Missing
+--------+---------------------------------------------------------------------
+    LOCS|     3.316176      .821323          2.0          5.0      272       0
+     EOF|     2.977941      .800986          1.0          4.0      272       0
+     EOW|     2.036765      .791170          1.0          5.0      272       0
+AVGSPEND|     2.183824      .789247          1.0          5.0      272       0
+    ALCN|     1.933824      .877788          1.0          6.0      272       0
+  FAVCUS|     2.816176     1.370227          1.0          5.0      272       0
+  RESTAU|     1.496324      .500908          1.0          2.0      272       0
+    DISG|     2.455882     1.201891          1.0          5.0      272       0
+  DISTHM|     2.683824     1.179169          1.0          5.0      272       0
+ OVERALL|     3.683824     1.203943          1.0          5.0      272       0
+FOODQUAL|     3.323529      .978608          1.0          5.0      272       0
+   TASTE|     3.297794     1.003460          1.0          5.0      272       0
+ SERVICE|     3.500000     1.096792          1.0          5.0      272       0
+LOCATION|     3.481618      .997983          1.0          5.0      272       0
+   PRICE|     3.250000      .869746          1.0          5.0      272       0
+AMBIANCE|     3.147059      .937370          1.0          5.0      272       0
+ VARIETY|     3.246324      .902020          1.0          5.0      272       0
+ HEALTHY|     2.338235      .656734          1.0          5.0      272       0
+  RECFRD|     3.349265     1.109868          1.0          5.0      272       0
+     TIP|     2.610294      .784281          1.0          4.0      272       0
+ REVISIT|     3.147059     1.256889          1.0          5.0      272       0
+     RNU|     2.147059     1.256889          0.0          4.0      272       0
+  FRRCNU|     2.349265     1.109868          0.0          4.0      272       0
+   GROUP|     4.735294     3.807616          0.0         11.0      272       0
+     RPN|     -.007353      .854736    -1.000000          1.0      272       0
+     YRR|     1.063971     1.594047          0.0     4.400000      272       0
+     PRR|     1.277482     1.742811          0.0     4.600000      272       0
+      WP|     29.56213     43.38286          0.0     175.8000      272       0
+     RWG|     10.13235     10.38222          1.0         43.0      272       0
+   ROUND|     1.500000      .500922          1.0          2.0      272       0
+     RNO|     136.5000     78.66384          1.0        272.0      272       0
+    REST|     1.500000      .500922          1.0          2.0      272       0
+     AGE|     37.53383     12.84658         20.0         79.0      266       6
+  GENDER|      .492647      .500867          0.0          1.0      272       0
+ ETHINIC|     2.455882     2.414188          1.0          9.0      272       0
+     EDU|     3.882353     2.125435          1.0          7.0      272       0
+ MARITAL|     1.852941      .563717          1.0          3.0      272       0
+  DEPEND|     2.941176     1.642448          0.0          7.0      272       0
+  INCOME|     3.926471     2.144700          1.0          9.0      272       0
+      RD|     2.647059      .913445          1.0          5.0      272       0
+      OT|     2.705882     1.024552          1.0          4.0      272       0
+    SNWS|     2.433824     1.404800          1.0          6.0      272       0
+   FBLTS|     2.588235     1.820225          1.0          6.0      272       0
+    FBAT|     3.095588     2.239790          1.0          8.0      272       0
+    RECR|     1.051471      .221363          1.0          2.0      272       0
+     UOR|     1.198529      .399628          1.0          2.0      272       0
+     NRE|     1.088235      .284160          1.0          2.0      272       0
+     WOR|     1.573529      .495476          1.0          2.0      272       0
+     OWU|     53.76471     46.90010          4.0        128.0      272       0
+    PFOR|     869.4044     706.6262          1.0       2046.0      272       0
+    RPTF|     1.147059      .354817          1.0          2.0      272       0
+     CPR|     1.036765      .188530          1.0          2.0      272       0
+      NC|     1.316176      .465840          1.0          2.0      272       0
+  TASTES|     4.602941      .622807          3.0          5.0      272       0
+     FQS|     4.463235      .686271          3.0          5.0      272       0
+     HCS|     3.367647     1.098868          1.0          5.0      272       0
+    AMBS|     3.661765      .860966          1.0          5.0      272       0
+SERVICES|     4.257353      .718715          2.0          5.0      272       0
+  PRICES|     3.750000      .865493          2.0          5.0      272       0
+--------+---------------------------------------------------------------------
+
+DSTAT results are matrix LASTDSTA in current project.
+|-> CREATE ; GEN = GENDER $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; MAR = MARITAL $
+|-> RECODE ; GEN ; 1=1;2=3;3=2 $
+|-> CREATE ; REC = RECR $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; UOR = UOR $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; NRE = NRE $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; WOR = WOR $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; RPTF = RPTF $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; CPR = CPR $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> CREATE ; NC = NC $
+|-> RECODE ; GEN ; 1=1;2=0 $
+|-> NAMELIST ; Z= AGE,GEN,MAR,DEPEND,INCOME,OT,REC $
+|-> REGRESS ; LHS=WP; RHS=Z; RES=RESID $
+
+-----------------------------------------------------------------------------
+Ordinary     least squares regression ............
+LHS=WP       Mean                 =       29.56213
+             Standard deviation   =       43.38286
+             Number of observs.   =            272
+Model size   Parameters           =              7
+             Degrees of freedom   =            265
+Residuals    Sum of squares       =        500579.
+             Standard error of e  =       43.46237
+Fit          R-squared            =         .01855
+             Adjusted R-squared   =        -.00367
+Model test   F[  6,   265] (prob) =      .8(.5438)
+Not using OLS or no constant. Rsqrd & F may be < 0
+Model was estimated on Jun 28, 2013 at 02:15:52 PM
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+      WP|  Coefficient       Error       t    |t|>T*         Interval
+--------+--------------------------------------------------------------------
+     AGE|    -.01265         .01745     -.73  .4691     -.04685    .02155
+     GEN|    6.97412        5.33131     1.31  .1920    -3.47506  17.42330
+     MAR|    11.6095**      4.67572     2.48  .0136      2.4453   20.7738
+  DEPEND|    -.99994        1.86044     -.54  .5914    -4.64633   2.64645
+  INCOME|    1.10134        1.39883      .79  .4318    -1.64031   3.84299
+      OT|   -1.72583        2.29267     -.75  .4523    -6.21937   2.76771
+     REC|    7.03458        8.92768      .79  .4314   -10.46335  24.53250
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> SETPANEL ; Group = GROUP ; Pds = GRP $
++-----------------------------------------------------------------+
+| Variable = ____________ Variable Groups    Max    Min   Average |
+| GRP        Group sizes  GROUP        22     37      9      12.4 |
++-----------------------------------------------------------------+
+|-> NAMELIST ; x = one,YRR,RESID $
+|-> ORDERED ; Lhs = RNU ; Rhs = x ; Partial Effects $
+Normal exit:  10 iterations. Status=0, F=    424.0052
+
+-----------------------------------------------------------------------------
+Ordered Probability Model
+Dependent variable                  RNU
+Log likelihood function      -424.00521
+Restricted log likelihood    -426.46862
+Chi squared [   2 d.f.]         4.92683
+Significance level               .08514
+McFadden Pseudo R-squared      .0057763
+Estimation based on N =    272, K =   6
+Inf.Cr.AIC  =    860.0 AIC/N =    3.162
+Model estimated: Jun 28, 2013, 14:15:53
+Underlying probabilities based on Normal
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+     RNU|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Index function for probability
+Constant|    1.20571***      .08161    14.77  .0000     1.04575   1.36567
+     YRR|    -.07193*        .04076    -1.76  .0776     -.15182    .00797
+   RESID|    -.00072*        .00043    -1.69  .0911     -.00156    .00012
+        |Threshold parameters for index
+   Mu(1)|     .64778***      .06662     9.72  .0000      .51720    .77835
+   Mu(2)|    1.31326***      .07253    18.11  .0000     1.17110   1.45542
+   Mu(3)|    2.17547***      .09539    22.81  .0000     1.98851   2.36243
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
++--------------------------------------------------------------------+
+|                CELL FREQUENCIES FOR ORDERED CHOICES                |
++--------------------------------------------------------------------+
+|               Frequency        Cumulative  < =    Cumulative  > =  |
+|Outcome      Count    Percent   Count    Percent   Count    Percent |
+|----------- ------- ---------  ------- ---------  ------- --------- |
+|RNU=00           35   12.8676       35   12.8676      272  100.0000 |
+|RNU=01           50   18.3824       85   31.2500      237   87.1324 |
+|RNU=02           69   25.3676      154   56.6176      187   68.7500 |
+|RNU=03           76   27.9412      230   84.5588      118   43.3824 |
+|RNU=04           42   15.4412      272  100.0000       42   15.4412 |
++--------------------------------------------------------------------+
+
+-----------------------------------------------------------------------------
+Marginal effects for ordered probability model
+M.E.s for dummy variables are Pr[y|x=1]-Pr[y|x=0]
+Names for dummy variables are marked by *.
+--------+--------------------------------------------------------------------
+        |     Partial                          Prob.      95% Confidence
+     RNU|      Effect    Elasticity      z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |--------------[Partial effects on Prob[Y=00] at means]--------------
+     YRR|     .01515*        .12238     1.75  .0805     -.00184    .03214
+   RESID|     .00015*        .00074     1.65  .0991     -.00003    .00033
+        |--------------[Partial effects on Prob[Y=01] at means]--------------
+     YRR|     .01039*        .05845     1.76  .0781     -.00117    .02195
+   RESID|     .00010*        .00035     1.70  .0895     -.00002    .00022
+        |--------------[Partial effects on Prob[Y=02] at means]--------------
+     YRR|     .00268         .01083     1.38  .1689     -.00114    .00649
+   RESID| .26794D-04      .6531D-04     1.42  .1543 -.10071D-04  .63659D-04
+        |--------------[Partial effects on Prob[Y=03] at means]--------------
+     YRR|    -.01160*       -.04333    -1.71  .0875     -.02491    .00170
+   RESID|    -.00012        -.00026    -1.61  .1067     -.00026    .00002
+        |--------------[Partial effects on Prob[Y=04] at means]--------------
+     YRR|    -.01662*       -.11721    -1.74  .0827     -.03539    .00215
+   RESID|    -.00017*       -.00071    -1.69  .0907     -.00036    .00003
+--------+--------------------------------------------------------------------
+z, prob values and confidence intervals are given for the partial effect
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Cross tabulation of predictions and actual outcomes
++------+-----+-----+-----+-----+-----+-----+
+|y(i,j)|  0  |  1  |  2  |  3  |  4  |Total|
++------+-----+-----+-----+-----+-----+-----+
+|   0  |    0|    0|    6|   29|    0|   35|
+|   1  |    0|    0|   10|   40|    0|   50|
+|   2  |    0|    0|   16|   52|    0|   68|
+|   3  |    0|    0|   10|   62|    0|   72|
+|   4  |    0|    0|    4|   37|    0|   41|
++------+-----+-----+-----+-----+-----+-----+
+| Total|    0|    0|   46|  220|    0|  266|
++------+-----+-----+-----+-----+-----+-----+
+Row = actual, Column = Prediction, Model = Probit
+Prediction is number of the most probable cell.
+
+Cross tabulation of outcomes and predicted probabilities.
++------+-----+-----+-----+-----+-----+-----+
+|y(i,j)|  0  |  1  |  2  |  3  |  4  |Total|
++------+-----+-----+-----+-----+-----+-----+
+|   0  |    5|    7|    9|   10|    5|   35|
+|   1  |    7|    9|   13|   14|    7|   50|
+|   2  |    9|   13|   17|   19|   10|   68|
+|   3  |    9|   13|   18|   20|   11|   72|
+|   4  |    5|    8|   11|   12|    6|   41|
++------+-----+-----+-----+-----+-----+-----+
+| Total|   35|   49|   68|   74|   40|  266|
++------+-----+-----+-----+-----+-----+-----+
+Row = actual, Column = Prediction, Model = Probit
+Value(j,m)=Sum(i=1,N)y(i,j)*p(i,m).
+Column totals may not match cell sums because of rounding error.
+|-> ORDERED ; Lhs = RNU; Rhs = x
+    ; RPM ; Panel ; Fcn = YRR(n),RESID(n) ; Halton ; Pts = 25
+    ; Partial Effects ; Par $
++-----------------------------------------------------------------+
+| Variable = ____________ Variable Groups    Max    Min   Average |
+| GRP        Group sizes  GROUP        22     37      9      12.4 |
++-----------------------------------------------------------------+
++------------------------------------------------------+
+| Frequency count for group sizes of GRP               |
+| Group size =   9   Pct =   9.09%   CumPct =   9.09%  |
+| Group size =  10   Pct =  81.82%   CumPct =  90.91%  |
+| Group size =  11   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  12   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  13   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  14   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  15   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  16   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  17   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  18   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  19   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  20   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  21   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  22   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  23   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  24   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  25   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  26   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  27   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  28   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  29   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  30   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  31   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  32   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  33   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  34   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  35   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  36   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  37   Pct =   9.09%   CumPct = 100.00%  |
++------------------------------------------------------+
+Normal exit:  16 iterations. Status=0, F=    407.6591
+
+-----------------------------------------------------------------------------
+Random Coefficients  OrdProbs Model
+Dependent variable                  RNU
+Log likelihood function      -407.65914
+Estimation based on N =    272, K =   8
+Inf.Cr.AIC  =    831.3 AIC/N =    3.056
+Model estimated: Jun 28, 2013, 14:15:55
+Unbalanced panel has     22 individuals
+Ordered probability model
+Ordered probit (normal) model
+LHS variable = values 0,1,..., 4
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+     RNU|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Nonrandom parameters
+Constant|    1.21929***      .10682    11.41  .0000     1.00993   1.42866
+        |Means for random parameters
+     YRR|    -.09863*        .05277    -1.87  .0616     -.20205    .00479
+   RESID|    -.00432**       .00181    -2.39  .0170     -.00788   -.00077
+        |Scale parameters for dists. of random parameters
+     YRR|     .11470***      .03814     3.01  .0026      .03995    .18946
+   RESID|     .01170***      .00168     6.96  .0000      .00841    .01500
+        |Threshold parameters for probabilities
+   MU(1)|     .69607***      .10422     6.68  .0000      .49180    .90035
+   MU(2)|    1.41876***      .09565    14.83  .0000     1.23129   1.60622
+   MU(3)|    2.35401***      .12326    19.10  .0000     2.11243   2.59559
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------
+Marginal effects for ordered probability model
+M.E.s for dummy variables are Pr[y|x=1]-Pr[y|x=0]
+Names for dummy variables are marked by *.
+--------+--------------------------------------------------------------------
+        |     Partial                          Prob.      95% Confidence
+     RNU|      Effect    Elasticity      z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |--------------[Partial effects on Prob[Y=00] at means]--------------
+     YRR|     .02117*        .16643     1.80  .0722     -.00191    .04424
+   RESID|     .00093**       .00439     2.27  .0230      .00013    .00173
+        |--------------[Partial effects on Prob[Y=01] at means]--------------
+     YRR|     .01490*        .07569     1.88  .0603     -.00064    .03044
+   RESID|     .00065**       .00200     2.39  .0169      .00012    .00119
+        |--------------[Partial effects on Prob[Y=02] at means]--------------
+     YRR|     .00150         .00554      .68  .4980     -.00283    .00582
+   RESID| .65573D-04         .00015      .70  .4841 -.11809D-03  .24924D-03
+        |--------------[Partial effects on Prob[Y=03] at means]--------------
+     YRR|    -.01933*       -.07396    -1.84  .0654     -.03988    .00123
+   RESID|    -.00085**      -.00195    -2.32  .0204     -.00156   -.00013
+        |--------------[Partial effects on Prob[Y=04] at means]--------------
+     YRR|    -.01823*       -.17713    -1.82  .0687     -.03786    .00140
+   RESID|    -.00080**      -.00468    -2.34  .0194     -.00147   -.00013
+--------+--------------------------------------------------------------------
+z, prob values and confidence intervals are given for the partial effect
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+|-> SAMPLE ; 2-273 $
+|-> ORDERED ; Lhs = RNU ; Rhs = x ; Partial Effects $
+Normal exit:  10 iterations. Status=0, F=    424.0052
+
+-----------------------------------------------------------------------------
+Ordered Probability Model
+Dependent variable                  RNU
+Log likelihood function      -424.00521
+Restricted log likelihood    -426.46862
+Chi squared [   2 d.f.]         4.92683
+Significance level               .08514
+McFadden Pseudo R-squared      .0057763
+Estimation based on N =    272, K =   6
+Inf.Cr.AIC  =    860.0 AIC/N =    3.162
+Model estimated: Jun 28, 2013, 14:15:55
+Underlying probabilities based on Normal
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+     RNU|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Index function for probability
+Constant|    1.20571***      .08161    14.77  .0000     1.04575   1.36567
+     YRR|    -.07193*        .04076    -1.76  .0776     -.15182    .00797
+   RESID|    -.00072*        .00043    -1.69  .0911     -.00156    .00012
+        |Threshold parameters for index
+   Mu(1)|     .64778***      .06662     9.72  .0000      .51720    .77835
+   Mu(2)|    1.31326***      .07253    18.11  .0000     1.17110   1.45542
+   Mu(3)|    2.17547***      .09539    22.81  .0000     1.98851   2.36243
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
++--------------------------------------------------------------------+
+|                CELL FREQUENCIES FOR ORDERED CHOICES                |
++--------------------------------------------------------------------+
+|               Frequency        Cumulative  < =    Cumulative  > =  |
+|Outcome      Count    Percent   Count    Percent   Count    Percent |
+|----------- ------- ---------  ------- ---------  ------- --------- |
+|RNU=00           35   12.8676       35   12.8676      272  100.0000 |
+|RNU=01           50   18.3824       85   31.2500      237   87.1324 |
+|RNU=02           69   25.3676      154   56.6176      187   68.7500 |
+|RNU=03           76   27.9412      230   84.5588      118   43.3824 |
+|RNU=04           42   15.4412      272  100.0000       42   15.4412 |
++--------------------------------------------------------------------+
+
+-----------------------------------------------------------------------------
+Marginal effects for ordered probability model
+M.E.s for dummy variables are Pr[y|x=1]-Pr[y|x=0]
+Names for dummy variables are marked by *.
+--------+--------------------------------------------------------------------
+        |     Partial                          Prob.      95% Confidence
+     RNU|      Effect    Elasticity      z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |--------------[Partial effects on Prob[Y=00] at means]--------------
+     YRR|     .01515*        .12238     1.75  .0805     -.00184    .03214
+   RESID|     .00015*        .00074     1.65  .0991     -.00003    .00033
+        |--------------[Partial effects on Prob[Y=01] at means]--------------
+     YRR|     .01039*        .05845     1.76  .0781     -.00117    .02195
+   RESID|     .00010*        .00035     1.70  .0895     -.00002    .00022
+        |--------------[Partial effects on Prob[Y=02] at means]--------------
+     YRR|     .00268         .01083     1.38  .1689     -.00114    .00649
+   RESID| .26794D-04      .6531D-04     1.42  .1543 -.10071D-04  .63659D-04
+        |--------------[Partial effects on Prob[Y=03] at means]--------------
+     YRR|    -.01160*       -.04333    -1.71  .0875     -.02491    .00170
+   RESID|    -.00012        -.00026    -1.61  .1067     -.00026    .00002
+        |--------------[Partial effects on Prob[Y=04] at means]--------------
+     YRR|    -.01662*       -.11721    -1.74  .0827     -.03539    .00215
+   RESID|    -.00017*       -.00071    -1.69  .0907     -.00036    .00003
+--------+--------------------------------------------------------------------
+z, prob values and confidence intervals are given for the partial effect
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Cross tabulation of predictions and actual outcomes
++------+-----+-----+-----+-----+-----+-----+
+|y(i,j)|  0  |  1  |  2  |  3  |  4  |Total|
++------+-----+-----+-----+-----+-----+-----+
+|   0  |    0|    0|    6|   29|    0|   35|
+|   1  |    0|    0|   10|   40|    0|   50|
+|   2  |    0|    0|   16|   52|    0|   68|
+|   3  |    0|    0|   10|   62|    0|   72|
+|   4  |    0|    0|    4|   37|    0|   41|
++------+-----+-----+-----+-----+-----+-----+
+| Total|    0|    0|   46|  220|    0|  266|
++------+-----+-----+-----+-----+-----+-----+
+Row = actual, Column = Prediction, Model = Probit
+Prediction is number of the most probable cell.
+
+Cross tabulation of outcomes and predicted probabilities.
++------+-----+-----+-----+-----+-----+-----+
+|y(i,j)|  0  |  1  |  2  |  3  |  4  |Total|
++------+-----+-----+-----+-----+-----+-----+
+|   0  |    5|    7|    9|   10|    5|   35|
+|   1  |    7|    9|   13|   14|    7|   50|
+|   2  |    9|   13|   17|   19|   10|   68|
+|   3  |    9|   13|   18|   20|   11|   72|
+|   4  |    5|    8|   11|   12|    6|   41|
++------+-----+-----+-----+-----+-----+-----+
+| Total|   35|   49|   68|   74|   40|  266|
++------+-----+-----+-----+-----+-----+-----+
+Row = actual, Column = Prediction, Model = Probit
+Value(j,m)=Sum(i=1,N)y(i,j)*p(i,m).
+Column totals may not match cell sums because of rounding error.
+|-> ORDERED ; Lhs = RNU ; Rhs = x
+    ; RPM ; Panel ; Fcn = YRR(n),RESID(n) ; Halton ; Pts = 25
+    ; Correlated ; Partial Effects ; Par $
++-----------------------------------------------------------------+
+| Variable = ____________ Variable Groups    Max    Min   Average |
+| GRP        Group sizes  GROUP        22     37      9      12.4 |
++-----------------------------------------------------------------+
++------------------------------------------------------+
+| Frequency count for group sizes of GRP               |
+| Group size =   9   Pct =   9.09%   CumPct =   9.09%  |
+| Group size =  10   Pct =  81.82%   CumPct =  90.91%  |
+| Group size =  11   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  12   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  13   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  14   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  15   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  16   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  17   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  18   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  19   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  20   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  21   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  22   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  23   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  24   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  25   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  26   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  27   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  28   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  29   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  30   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  31   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  32   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  33   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  34   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  35   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  36   Pct =    .00%   CumPct =  90.91%  |
+| Group size =  37   Pct =   9.09%   CumPct = 100.00%  |
++------------------------------------------------------+
+Normal exit:  19 iterations. Status=0, F=    406.2038
+
+-----------------------------------------------------------------------------
+Random Coefficients  OrdProbs Model
+Dependent variable                  RNU
+Log likelihood function      -406.20378
+Estimation based on N =    272, K =   9
+Inf.Cr.AIC  =    830.4 AIC/N =    3.053
+Model estimated: Jun 28, 2013, 14:15:58
+Unbalanced panel has     22 individuals
+Ordered probability model
+Ordered probit (normal) model
+LHS variable = values 0,1,..., 4
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+     RNU|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Nonrandom parameters
+Constant|    1.21591***      .10224    11.89  .0000     1.01552   1.41630
+        |Means for random parameters
+     YRR|    -.12746**       .05313    -2.40  .0164     -.23160   -.02333
+   RESID|    -.00571***      .00199    -2.87  .0041     -.00961   -.00181
+        |Diagonal elements of Cholesky matrix
+     YRR|     .11221**       .05106     2.20  .0280      .01213    .21230
+   RESID|     .01001***      .00189     5.31  .0000      .00632    .01371
+        |Below diagonal elements of Cholesky matrix
+lRES_YRR|    -.00822***      .00207    -3.97  .0001     -.01228   -.00416
+        |Threshold parameters for probabilities
+   MU(1)|     .69927***      .10597     6.60  .0000      .49157    .90697
+   MU(2)|    1.42854***      .09692    14.74  .0000     1.23857   1.61851
+   MU(3)|    2.37877***      .12443    19.12  .0000     2.13489   2.62265
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Implied covariance matrix of random parameters
+
+Covariance  matrix
+--------+-----------------------------------------------------------------------
+                 YRR       RESID
+--------+-----------------------------------------------------------------------
+YRR        .1259E-01
+RESID     -.9226E-03   .1679E-03
+
+Implied standard deviations of random parameters
+
+S.D_Beta|             1
+--------+--------------
+       1|       .112212
+       2|      .0129570
+
+
+Implied correlation matrix of random parameters
+
+
+--------+-----------------
+Cor.Mat.|     YRR    RESID
+--------+-----------------
+     YRR| 1.00000  -.63456
+   RESID| -.63456  1.00000
+
+
+-----------------------------------------------------------------------------
+Marginal effects for ordered probability model
+M.E.s for dummy variables are Pr[y|x=1]-Pr[y|x=0]
+Names for dummy variables are marked by *.
+--------+--------------------------------------------------------------------
+        |     Partial                          Prob.      95% Confidence
+     RNU|      Effect    Elasticity      z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |--------------[Partial effects on Prob[Y=00] at means]--------------
+     YRR|     .02840**       .21137     2.24  .0248      .00360    .05320
+   RESID|     .00127***      .00570     2.71  .0068      .00035    .00219
+        |--------------[Partial effects on Prob[Y=01] at means]--------------
+     YRR|     .01891**       .09319     2.43  .0150      .00367    .03414
+   RESID|     .00085***      .00251     2.85  .0043      .00027    .00143
+        |--------------[Partial effects on Prob[Y=02] at means]--------------
+     YRR|     .00053         .00196      .20  .8401     -.00466    .00573
+   RESID| .23942D-04      .5288D-04      .20  .8401 -.20861D-03  .25649D-03
+        |--------------[Partial effects on Prob[Y=03] at means]--------------
+     YRR|    -.02598**      -.10173    -2.34  .0194     -.04776   -.00420
+   RESID|    -.00116***     -.00275    -2.80  .0052     -.00198   -.00035
+        |--------------[Partial effects on Prob[Y=04] at means]--------------
+     YRR|    -.02186**      -.23543    -2.31  .0207     -.04037   -.00334
+   RESID|    -.00098***     -.00635    -2.76  .0058     -.00168   -.00028
+--------+--------------------------------------------------------------------
+z, prob values and confidence intervals are given for the partial effect
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+

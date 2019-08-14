@@ -1,0 +1,79 @@
+? Peer Vs Anonymous 
+? MODEL: SPATIAL PROBIT MODEL
+? DATE: JUNE 09, 2013
+
+RESET $
+
+?Group,Review_posneg=RPN,Yelp_rev_received=YRR,Peer_rev_received=PRR,Weighted_peer=WP,Respondentwithingroup=RWG,Round,Respondent_No=RNO,Restaurant,
+?Age,Gender,Ethinic,Edu,Marital,Dependents,Income,Restaurant_decision=RD,Online_time=OT,SN_Websites=SNWS,FB_login_times=FBLTS,FB_avg_time=FBAT,Rec_restaurant=RECR,Used_online_rev=UOR,Noofreviewseffect=NRE,Written_online_rev=WOR,Online_website_used=OWU,Prod_for_online_rev=PFOR,Rec_prod_tofriends=RPTF,consider_peer_rev=CPR,Nutrient_chk=NC,Taste_self=TASTES,FoodQual_self=FQS,Health_choice_self=HCS,Ambiance_self=AMBS,Service_self=SERVICE_S,Price_self=PRICE_S,Location_self=LOCS,EatOut_freq=EOF,Eatout_with=EOW,Avg_spend=AVGSPEND,Alcohol_no=ALCN,Fav_cusine=FAVCUS,Restau,Distance_G,Distance_HM,Overall,FoodQual,Taste,Service,Location,Price,Ambiance,Variety,Healthy,Rec_friend,Tip,Revisit
+? RESTAURANT = CORRECTED RESTAU- ENTERED BY RESPONDENT (FEW INCORRECT INCLUDING WILL)
+? gender 1=male, 
+? RNU=REVISITNU =ON A 0-4 SCALE SIMILARLY 0-4 FRRCNU-FRIEND REC NU
+
+
+READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA2.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=23 ; NAMES=LOCS,EOF,EOW,AVGSPEND,ALCN,FAVCUS,Restau,DisG,DistHM,Overall,FoodQual,Taste,Service,Location,Price,Ambiance,Variety,Healthy,Recfrd,Tip,Revisit,RNU,FRRCNU $
+
+SAMPLE ; 2-273 $
+DSTAT ; RHS=* $
+
+
+READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA3.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=24 ; NAMES=Group,RPN,YRR,PRR,WP,RWG,Round,RNO,Rest,Age,Gender,Ethinic,Edu,Marital,Depend,Income,RD,OT,SNWS,FBLTS,FBAT,RECR,UOR,NRE $
+
+SAMPLE ; 2-273 $
+DSTAT ; RHS=* $
+
+READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA4.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=12 ; NAMES=WOR,OWU,PFOR,RPTF,CPR,NC,TASTES,FQS,HCS,AMBS,SERVICES,PRICES $
+
+SAMPLE ; 2-273 $
+DSTAT ; RHS=* $
+
+?Deal with endogeneity wx=z+e use e in the op model 
+
+CREATE ; GEN = GENDER $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; MAR = MARITAL $ 
+RECODE ; GEN ; 1=1;2=3;3=2 $
+
+CREATE ; REC = RECR $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; UOR = UOR $ 
+RECODE ; GEN ; 1=1;2=0 $
+ 
+CREATE ; NRE = NRE $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; WOR = WOR $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; RPTF = RPTF $ 
+RECODE ; GEN ; 1=1;2=0 $
+ 
+CREATE ; CPR = CPR $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; NC = NC $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+NAMELIST ; Z= AGE,GEN,MAR,DEPEND,INCOME,OT,REC $ 
+REGRESS ; LHS=WP; RHS=Z; RES=RESID $
+
+
+? SET UP THE PANEL: SETPANEL ; Group = the identification variable ; Pds = name of a variable that the program will create $ 
+
+              
+SETPANEL ; Group = GROUP ; Pds = GRP $ 
+NAMELIST ; x = YRR,RESID $ 
+ORDERED ; Lhs = RNU ; Rhs = x ; Partial Effects $ 
+ORDERED ; Lhs = RNU; Rhs = x 
+; RPM ; Panel ; Fcn = YRR(n),RESID(n) ; Halton ; Pts = 1000
+; Partial Effects ; Par $ 
+SAMPLE ; 2-273 $ 
+?MATRIX ; mb_ROUND = beta_i(1:118,1:1) $ 
+?CREATE ; be_ROUND = mb_ROUND $ 
+?KERNEL ; Rhs = be_ROUND $ 
+ORDERED ; Lhs = RNU ; Rhs = x ; Partial Effects $ 
+ORDERED ; Lhs = RNU ; Rhs = x 
+; RPM ; Panel ; Fcn = YRR(n),RESID(n) ; Halton ; Pts = 1000
+; Correlated ; Partial Effects ; Par $ 
