@@ -1,0 +1,65 @@
+? POSITIVE VS NEGATIVE Yelp 
+? MODEL: SIMPLE OP MODEL & RANDOM COEFFICIENT  
+? DATE: JUNE 09, 2013
+
+RESET $
+
+READ ; FILE=C:\Data\Ashutosh\THESISDATA6.csv ; FORMAT=CSV ; NOBS=137 ; NVAR=23 ; NAMES=Group,RPN,YRR,POS,NEG,Posnew,POSNEW1,Negnew,NEGNEW1,RWG,Rest,Overall,FoodQual,Taste,Service,Location,Price,Ambiance,Variety,Healthy,Recfrd,Tip,Revisit $
+
+SAMPLE ; 2-137 $
+DSTAT ; RHS=* $
+
+
+READ ; FILE=C:\Data\Ashutosh\THESISDATA7.csv ; FORMAT=CSV ; NOBS=137 ; NVAR=15 ; NAMES=Age,Gender,Ethinic,Edu,Marital,Depend,Income,RD,OT,SNWS,FBLTS,FBAT,RECR,UOR,NRE $
+
+SAMPLE ; 2-137 $
+DSTAT ; RHS=* $
+
+CREATE ; GEN = GENDER $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; MAR = MARITAL $ 
+RECODE ; GEN ; 1=0;2=1;3=0 $
+
+CREATE ; REC = RECR $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; UOR = UOR $ 
+RECODE ; GEN ; 1=1;2=0 $
+ 
+CREATE ; NRE = NRE $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; IV1= (AGE*GEN)^2 $
+
+NAMELIST ; Z=NRE,AGE,MAR $
+?,REC,UOR, MAR 
+
+NAMELIST ; X= POSNEW1,NEGNEW1 $
+
+OPROBIT ; Lhs =RECFRD 
+        ; Rhs = X $ 
+
+?TEST RPOP
+
+
+?OPROBIT ; Lhs =RECFRD 
+?                  ; Rhs = X   
+?; Panel ; Fcn = POSNEW1(n),NEGNEW1(n) ; Halton ; Pts = 1000
+?; Par $ 
+
+
+
+
+?ORDERED ; Lhs =RECFRD ; Rhs = x  ; Partial Effects $ 
+ORDERED ; Lhs = RECFRD ; Rhs = x  
+; Panel ; RPM ;  Fcn = POSNEW1(n),NEGNEW1(n) ; Halton ; Pts = 100
+; Correlated ; Partial Effects ; Par $ 
+
+
+
+
+?(RUNS PERFECTLY : RECFRIEND IS 0-4 SCALE)
+
+?OPROBIT ; Lhs =REVISIT 
+?                  ; Rhs = X $ 

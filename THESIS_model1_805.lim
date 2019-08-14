@@ -1,0 +1,147 @@
+? Peer Vs Anonymous 
+? MODEL: SPATIAL PROBIT MODEL
+? DATE: JUNE 09, 2013
+
+RESET $
+
+?Group,Review_posneg=RPN,Yelp_rev_received=YRR,Peer_rev_received=PRR,Weighted_peer=WP,Respondentwithingroup=RWG,Round,Respondent_No=RNO,Restaurant,
+?Age,Gender,Ethinic,Edu,Marital,Dependents,Income,Restaurant_decision=RD,Online_time=OT,SN_Websites=SNWS,FB_login_times=FBLTS,FB_avg_time=FBAT,Rec_restaurant=RECR,Used_online_rev=UOR,Noofreviewseffect=NRE,Written_online_rev=WOR,Online_website_used=OWU,Prod_for_online_rev=PFOR,Rec_prod_tofriends=RPTF,consider_peer_rev=CPR,Nutrient_chk=NC,Taste_self=TASTES,FoodQual_self=FQS,Health_choice_self=HCS,Ambiance_self=AMBS,Service_self=SERVICE_S,Price_self=PRICE_S,Location_self=LOCS,EatOut_freq=EOF,Eatout_with=EOW,Avg_spend=AVGSPEND,Alcohol_no=ALCN,Fav_cusine=FAVCUS,Restau,Distance_G,Distance_HM,Overall,FoodQual,Taste,Service,Location,Price,Ambiance,Variety,Healthy,Rec_friend,Tip,Revisit
+? RESTAURANT = CORRECTED RESTAU- ENTERED BY RESPONDENT (FEW INCORRECT INCLUDING WILL)
+? gender 1=male, 
+? RNU=REVISITNU =ON A 0-4 SCALE SIMILARLY 0-4 FRRCNU-FRIEND REC NU
+
+
+READ ; FILE=C:\Data\Ashutosh\THESISDATA2.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=23 ; NAMES=LOCS,EOF,EOW,AVGSPEND,ALCN,FAVCUS,Restau,DisG,DistHM,Overall,FoodQual,Taste,Service,Location,Price,Ambiance,Variety,Healthy,Recfrd,Tip,Revisit,RNU,FRRCNU $
+
+SAMPLE ; 2-273 $
+DSTAT ; RHS=* $
+
+
+?READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA3.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=24 ; NAMES=Group,RPN,YRR,PRR,WP,RWG,Round,RNO,Rest,Age,Gender,Ethinic,Edu,Marital,Depend,Income,RD,OT,SNWS,FBLTS,FBAT,RECR,UOR,NRE $
+? replace thesisdata3.csv with thesisdata728.csv use WPN in place of WP, W is peer matrix, P is peer review vector WP is non normalized vector WPN = Normalized Matrix* Peer Review Vector 
+? SUBSTRACTED 3 FROM BOTH YEAL AND PEER REVIEWS SO AUTOMATICALLY NEGATIVE BECAME NEGATIVE AND POSITIVE BECAME POSITIVE
+READ ; FILE=C:\Data\Ashutosh\THESISDATA728.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=28 ; NAMES=Group,RPN,YRR,YRRS,PRR,NEWYRR,NEWPRR,WP,WPN,RWG,Round,RNO,Rest,Age,Gender,Ethinic,Edu,Marital,Depend,Income,RD,OT,SNWS,FBLTS,FBAT,RECR,UOR,NRE $
+SAMPLE ; 2-273 $
+DSTAT ; RHS=* $
+
+READ ; FILE=C:\Data\Ashutosh\THESISDATA4.csv ; FORMAT=CSV ; NOBS=273 ; NVAR=12 ; NAMES=WOR,OWU,PFOR,RPTF,CPR,NC,TASTES,FQS,HCS,AMBS,SERVICES,PRICES $
+
+SAMPLE ; 2-273 $
+DSTAT ; RHS=* $
+
+?Deal with endogeneity wx=z+e use e in the op model 
+
+?CREATE ; EDU1 = EDU $ 
+?RECODE ; GEN ; 1=1;2=0;3=0;4=0;5=0;6=0;7=0 $
+
+?CREATE ; EDU2 = EDU $ 
+?RECODE ; GEN ; 1=0;2=1;3=0;4=0;5=0;6=0;7=0 $
+
+?CREATE ; EDU3 = EDU $ 
+?RECODE ; GEN ; 1=0;2=0;3=1;4=0;5=0;6=0;7=0 $
+
+?CREATE ; EDU4 = EDU $ 
+?RECODE ; GEN ; 1=0;2=0;3=0;4=1;5=0;6=0;7=0 $
+
+?CREATE ; EDU5 = EDU $ 
+?RECODE ; GEN ; 1=0;2=0;3=0;4=0;5=1;6=0;7=0 $
+
+?CREATE ; EDU6 = EDU $ 
+?RECODE ; GEN ; 1=0;2=0;3=0;4=0;5=0;6=1;7=0 $
+
+CREATE ; GEN = GENDER $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; MAR = MARITAL $ 
+RECODE ; GEN ; 1=0;2=1;3=0 $
+
+CREATE ; REC = RECR $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; UOR = UOR $ 
+RECODE ; GEN ; 1=1;2=0 $
+ 
+CREATE ; NRE = NRE $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; WOR = WOR $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; RPTF = RPTF $ 
+RECODE ; GEN ; 1=1;2=0 $
+ 
+CREATE ; CPR = CPR $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; NC = NC $ 
+RECODE ; GEN ; 1=1;2=0 $
+
+CREATE ; FC = FAVCUS $ 
+RECODE ; GEN ; 1=1;2=0;3=0;4=0;5=0 $
+
+CREATE ; FCO = FAVCUS $ 
+RECODE ; GEN ; 1=0;2=0;3=0;4=0;5=1 $
+
+CREATE ; TAST = TASTES $ 
+RECODE ; GEN ; 1=0;2=1;3=2;4=3;5=4 $
+
+CREATE ; SERV = SERVICES $ 
+RECODE ; GEN ; 1=0;2=1;3=2;4=3;5=4 $
+
+CREATE ; FQS = FQS $ 
+RECODE ; GEN ; 1=0;2=1;3=2;4=3;5=4 $
+
+CREATE ; HCS = HCS $ 
+RECODE ; GEN ; 1=0;2=1;3=2;4=3;5=4 $
+
+CREATE ; AMBS = AMBS $ 
+RECODE ; GEN ; 1=0;2=1;3=2;4=3;5=4 $
+
+CREATE ; PRICES = PRICES $ 
+RECODE ; GEN ; 1=0;2=1;3=2;4=3;5=4 $
+
+
+CREATE ; LOCS = LOCS $ 
+RECODE ; GEN ; 1=0;2=1;3=2;4=3;5=4 $
+
+CREATE ; IV1= (AGE*GEN)^2 $
+CREATE ; IV2= FCO*AGE $
+
+
+
+NAMELIST ; Z= AGE,CPR,WOR,IV1,NC,TAST,AGE*NC $ 
+REGRESS ; LHS=WPN; RHS=Z; RES=RESID $ 
+
+
+
+NAMELIST ; Y=RNU $
+NAMELIST ; X=WPN $
+
+2SLS ; Quietly ; Lhs = y ; Rhs = x ; Inst = z $ 
+MATRIX ; vh = varb - ssqrd*<x'x> ; dh = b - <x'x>*x'y $ 
+MATRIX ; list ; hausman = dh'*ginv(vh)*dh $ 
+
+REGRESS ; Lhs = y ; Rhs = x  
+; Inst = z ; Wu test $ 
+
+Namelist ; Z1= SERV,TAST,HCS $
+
+? SET UP THE PANEL: SETPANEL ; Group = the identification variable ; Pds = name of a variable that the program will create $ 
+
+              
+SETPANEL ; Group = GROUP ; Pds = GRP $ 
+NAMELIST ; x = NEWYRR,RESID $ 
+ORDERED ; Lhs = RNU ; Rhs = NEWYRR,RESID,Z1 $
+Wald ; fn1=b_NEWYRR;fn2=b_RESID $
+
+
+
+ORDERED ; Lhs = RNU ; Rhs = x ; Partial Effects $ 
+ORDERED ; Lhs = RNU; Rhs = x  
+; RPM ; Panel ; Fcn = NEWYRR(n),RESID(n) ; Halton ; Pts = 100
+; Partial Effects ; Par $ 
+SAMPLE ; 2-273 $ 
+ORDERED ; Lhs = RNU ; Rhs = x  ; Partial Effects $ 
+ORDERED ; Lhs = RNU ; Rhs = x,Z1  
+; RPM ; Panel ; Fcn = NEWYRR(n),RESID(n) ; Halton ; Pts = 100
+; Correlated ; Partial Effects ; full; Par $ 

@@ -1,0 +1,38 @@
+? POSITIVE VS NEGATIVE Yelp 
+? MODEL: SIMPLE OP MODEL & RANDOM COEFFICIENT  
+? DATE: JUNE 09, 2013
+
+RESET $
+
+?Group,Review_posneg=RPN,Yelp_rev_received=YRR,Peer_rev_received=PRR,Weighted_peer=WP,Respondentwithingroup=RWG,Round,Respondent_No=RNO,Restaurant,
+?Age,Gender,Ethinic,Edu,Marital,Dependents,Income,Restaurant_decision=RD,Online_time=OT,SN_Websites=SNWS,FB_login_times=FBLTS,FB_avg_time=FBAT,Rec_restaurant=RECR,Used_online_rev=UOR,Noofreviewseffect=NRE,Written_online_rev=WOR,Online_website_used=OWU,Prod_for_online_rev=PFOR,Rec_prod_tofriends=RPTF,consider_peer_rev=CPR,Nutrient_chk=NC,Taste_self=TASTES,FoodQual_self=FQS,Health_choice_self=HCS,Ambiance_self=AMBS,Service_self=SERVICE_S,Price_self=PRICE_S,Location_self=LOCS,EatOut_freq=EOF,Eatout_with=EOW,Avg_spend=AVGSPEND,Alcohol_no=ALCN,Fav_cusine=FAVCUS,Restau,Distance_G,Distance_HM,Overall,FoodQual,Taste,Service,Location,Price,Ambiance,Variety,Healthy,Rec_friend,Tip,Revisit
+? RESTAURANT = CORRECTED RESTAU- ENTERED BY RESPONDENT (FEW INCORRECT INCLUDING WILL)
+? gender 1=male, 
+? RNU=REVISITNU =ON A 0-4 SCALE SIMILARLY 0-4 FRRCNU-FRIEND REC NU
+
+
+READ ; FILE=C:\Users\atiwari7\Desktop\THESISDATA6.csv ; FORMAT=CSV ; NOBS=137 ; NVAR=23 ; NAMES=Group,RPN,YRR,POS,NEG,Posnew,POSNEW1,Negnew,NEGNEW1,RWG,Rest,Overall,FoodQual,Taste,Service,Location,Price,Ambiance,Variety,Healthy,Recfrd,Tip,Revisit $
+
+SAMPLE ; 2-137 $
+DSTAT ; RHS=* $
+
+
+NAMELIST ; X= POSNEW,NEGNEW $
+
+
+?OPROBIT ; Lhs = OVERALL 
+?       ; Rhs = X $ 
+
+?(RUNS PERFECTLY)  
+
+
+
+
+OPROBIT ; Lhs =RECFRD 
+                  ; Rhs = X  $ 
+
+
+?(RUNS PERFECTLY : RECFRIEND IS 0-4 SCALE)
+
+?OPROBIT ; Lhs =REVISIT 
+?                  ; Rhs = X $ 
